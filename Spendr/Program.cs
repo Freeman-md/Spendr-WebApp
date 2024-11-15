@@ -1,7 +1,24 @@
+using Microsoft.Extensions.Azure;
+using Microsoft.Azure.Cosmos;
+using Azure.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<CosmosClient>(
+    _ => new CosmosClient(builder.Configuration["ConnectionsStrings:CosmosDB"])
+    );
+
+builder.Services.AddSingleton<CosmosDBService>(
+    sp => new CosmosDBService(
+        sp.GetRequiredService<CosmosClient>(),
+        builder.Configuration["CosmosDB:DatabaseName"]
+    )
+);
+
+builder.Services.AddScoped<ExpenseRepository>();
 
 var app = builder.Build();
 
