@@ -1,6 +1,9 @@
 using Microsoft.Extensions.Azure;
 using Microsoft.Azure.Cosmos;
 using Azure.Identity;
+using Spendr.Contracts;
+using Spendr.Repositories;
+using Spendr.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,17 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<CosmosClient>(
-    _ => new CosmosClient(builder.Configuration["ConnectionsStrings:CosmosDB"])
+    _ => new CosmosClient(builder.Configuration["ConnectionStrings:CosmosDB"])
     );
 
-builder.Services.AddSingleton<CosmosDBService>(
-    sp => new CosmosDBService(
+builder.Services.AddSingleton<ICosmosDBService>(sp =>
+    new CosmosDBService(
         sp.GetRequiredService<CosmosClient>(),
-        builder.Configuration["CosmosDB:DatabaseName"]
-    )
-);
+        builder.Configuration["CosmosDB:DatabaseName"],
+        sp.GetRequiredService<ILogger<CosmosDBService>>()
+        ));
 
-builder.Services.AddScoped<ExpenseRepository>();
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 
 var app = builder.Build();
 

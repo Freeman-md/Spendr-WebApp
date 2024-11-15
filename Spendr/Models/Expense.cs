@@ -1,4 +1,4 @@
-namespace YourApp.Models
+namespace Spendr.Models
 {
     public class Expense
     {
