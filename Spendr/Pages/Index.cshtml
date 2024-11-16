@@ -1,10 +1,17 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Expense";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="grid grid-cols-3 gap-4">
+    @foreach(var Expense in Model.Expenses) {
+        <div class="rounded-xl bg-white shadow p-4">
+            <h2 class="text-md font-medium">Expense for @Expense.Username</h2>
+    
+            <p class="text-3xl font-bold">$@Expense.Amount</p>
+    
+            <p class="text-sm">@Expense.Description</p>
+        </div>
+    }
 </div>
