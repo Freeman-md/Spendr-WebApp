@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spendr", "Spendr\Spendr.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spendr.Tests", "Spendr.Tests\Spendr.Tests.csproj", "{76EAE117-146E-4E8A-BFBD-824049373A04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spendr.Tests.Integration", "Spendr.Tests.Integration\Spendr.Tests.Integration.csproj", "{4EF35603-20F4-42FB-93B9-CD59573A6FE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{76EAE117-146E-4E8A-BFBD-824049373A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76EAE117-146E-4E8A-BFBD-824049373A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76EAE117-146E-4E8A-BFBD-824049373A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF35603-20F4-42FB-93B9-CD59573A6FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF35603-20F4-42FB-93B9-CD59573A6FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF35603-20F4-42FB-93B9-CD59573A6FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF35603-20F4-42FB-93B9-CD59573A6FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
