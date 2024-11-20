@@ -12,7 +12,7 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly IExpenseRepository _expenseRepository;
 
-    public IEnumerable<Expense> Expenses { get; private set; } = new List<Expense>();
+    public List<Expense> Expenses { get; private set; } = new List<Expense>();
 
 
     public IndexModel(ILogger<IndexModel> logger, IExpenseRepository expenseRepository)

@@ -19,7 +19,7 @@ public class ExpenseRepository : IExpenseRepository
 
     public async Task<Expense?> GetExpense(string id, string partitionKey)
     {
-        var response = await _container.ReadItemAsync<Expense>(
+        ItemResponse<Expense> response = await _container.ReadItemAsync<Expense>(
          id: id,
          partitionKey: new PartitionKey(partitionKey)
      );
