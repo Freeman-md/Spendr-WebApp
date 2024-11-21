@@ -18,6 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../Spendr/Spendr.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="testsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
